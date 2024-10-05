@@ -13,20 +13,20 @@
 
 }
 
- .movie {
+.movie {
     display: flex;
     width: 35vw;
     background-color: white;
     margin-bottom: 70px;
     font-weight: 300;
-     flex-direction: column;
+    flex-direction: column;
     padding: 20px;
     border-radius: 5px;
     text-decoration: none !important;
     color: #adaeb9;
     box-shadow: 0 13px 27px -5px rgba(50, 50, 93, 0.25),
     0 8px 16px -8px rgba(0, 0, 0, 0.3), 0 -6px 16px -6px rgba(0, 0, 0, 0.025);
-    height:35vw;
+    height: 35vw;
 }
 
 @keyframes moveUpDown {
@@ -95,7 +95,7 @@
     width: 80%;
 }
 
-.movies--btn{
+.movies--btn {
     display: flex;
     flex-grow: 1;
     height: 5%;
@@ -103,7 +103,7 @@
     align-items: flex-end;
 }
 
-.movie--btn{
+.movie--btn {
     display: flex;
-    height:40px;
+    height: 40px;
 }

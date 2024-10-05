@@ -38,7 +38,10 @@ function NavBar(props) {
                             <Link className={`link ${location.pathname === '/graph' ? 'active' : ''}`} to='/graph'>GRAPH</Link>
                             <Divider sx={{ borderColor: 'white' }} orientation="vertical" variant="middle" flexItem />
                         </Box>
-                        <Button color="inherit" className="nav--btn" onClick={logOut}>LogOut</Button>
+                        <Link style={{color:'white'}} to={'/'}>
+                            <Button  color="inherit" className="nav--btn" onClick={logOut}>LogOut</Button>
+                        </Link>
+
                     </Toolbar>
                 </AppBar>
             </Box>

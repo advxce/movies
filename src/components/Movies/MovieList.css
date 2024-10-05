@@ -9,8 +9,17 @@
     text-decoration: none;
 }
 
-.container .input{
-    display: flex;
-    align-items: flex-start;
-}
 
+.input--container{
+    margin: 20px 0 0 20px;
+    display: flex;
+    width: 100%;
+
+}
+.input--constructor{
+    display: flex;
+    align-items: center;
+}
+.movie-filter{
+    font-size: 1.2em !important;
+}
