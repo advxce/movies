@@ -1,0 +1,11 @@
+
+
+.auth--container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.auth--btn{
+    font-size: 1.4em !important;
+}
