@@ -1,14 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Movie from './Movie';
-import UserProfile from '../UserProfile/UserProfile'; // Импортируем UserProfile
 import "./Movie.css";
 import "./MovieList.css";
+import {Input} from "@mui/material";
+import SearchIcon from '@mui/icons-material/Search';
 
-const MovieList = ({onAdd}) => {
+
+
+const MovieList = ({ onAdd }) => {
     const [movies, setMovies] = useState([]);
-
     const [loading, setLoading] = useState(true);
+    const [filter, setFilter] = useState('');
 
     useEffect(() => {
         const fetchMovies = async () => {
@@ -25,16 +28,35 @@ const MovieList = ({onAdd}) => {
         fetchMovies();
     }, []);
 
-
-
     if (loading) {
         return <div>Loading...</div>;
     }
 
+    // Фильтрация фильмов по названию
+    const filteredMovies = movies.filter(movie =>
+        movie.title.toLowerCase().includes(filter.toLowerCase())
+    );
+
     return (
         <div className="container">
+            <div className='input--container'>
+                <div className='input--constructor'>
+                    <Input
+                        sx={{ ml: 1, flex: 1 }}
+                        placeholder="Search by name"
+                        value={filter}
+                        onChange={(e) => setFilter(e.target.value)}
+                        className="movie-filter"
+                        inputProps={{ 'aria-label': 'search google maps' }}
+                    />
+                    <SearchIcon />
+                </div>
+
+            </div>
+
+
             <div className="movies">
-                {movies.map((movie) => (
+                {filteredMovies.map((movie) => (
                     <Movie
                         key={movie.id}
                         id={movie.id}
@@ -44,7 +66,7 @@ const MovieList = ({onAdd}) => {
                         summary={movie.summary}
                         poster={movie.medium_cover_image}
                         genres={movie.genres}
-                        flag = {true}
+                        flag={true}
                         largePoster={movie.large_cover_image}
                     />
                 ))}
